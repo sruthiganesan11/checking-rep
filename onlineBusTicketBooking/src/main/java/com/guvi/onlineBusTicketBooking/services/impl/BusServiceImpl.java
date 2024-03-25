@@ -46,7 +46,7 @@ public class BusServiceImpl implements BusService {
                 () -> new ResourceNotFoundException("Bus with the given id is not exists")
         );
 
-        bus.setBusNumber(updatedBus.getBusNumber());
+        bus.setBusName(updatedBus.getBusName());
         bus.setCapacity(updatedBus.getCapacity());
 
         Bus updatedBusObj = busRepo.save(bus);

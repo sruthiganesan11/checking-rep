@@ -8,7 +8,7 @@ public class PassengerMapper {
     public static PassengerDto mapToPassengerDto(Passenger passenger) {
         return new PassengerDto(
                 passenger.getId(),
-                passenger.getFirstname(),
+                passenger.getFirstName(),
                 passenger.getLastName(),
                 passenger.getPhoneNumber(),
                 passenger.getEmail());
@@ -17,7 +17,7 @@ public class PassengerMapper {
     public static Passenger mapToPassenger(PassengerDto passengerDto) {
         return new Passenger(
                 passengerDto.getId(),
-                passengerDto.getFirstname(),
+                passengerDto.getFirstName(),
                 passengerDto.getLastName(),
                 passengerDto.getPhoneNumber(),
                 passengerDto.getEmail());

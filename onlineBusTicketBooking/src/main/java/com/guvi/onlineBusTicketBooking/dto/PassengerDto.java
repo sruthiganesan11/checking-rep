@@ -16,8 +16,8 @@ public class PassengerDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstname;
-    private String LastName;
+    private String firstName;
+    private String lastName;
     private int PhoneNumber;
     private String email;
 

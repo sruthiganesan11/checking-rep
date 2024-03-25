@@ -46,14 +46,16 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = bookingRepo.findById(bookingId)
                 .orElseThrow(() ->new ResourceNotFoundException(
                         "Bookings with the given id is not exists " + bookingId));
-        booking.setBus(updatedBooking.getBus());
-        booking.setBusNumber(updatedBooking.getBusNumber());
+
+        booking.setId(updatedBooking.getId());
+        booking.setBookingId(updatedBooking.getBookingId());
+        booking.setBookingDate(updatedBooking.getBookingDate());
         booking.setPassenger(updatedBooking.getPassenger());
-        booking.setFirstname(updatedBooking.getFirstname());
-        booking.setLastName(updatedBooking.getLastName());
-        booking.setFromLocation(updatedBooking.getFromLocation());
-        booking.setToLocation(updatedBooking.getToLocation());
-        booking.setTotalPrice(updatedBooking.getTotalPrice());
+        booking.setBus(updatedBooking.getBus());
+        booking.setBusName(updatedBooking.getBusName());
+        booking.setFee(updatedBooking.getFee());
+        booking.setDepartureDate(updatedBooking.getDepartureDate());
+
 
         Booking updatedBookingObj = bookingRepo.save(booking);
         return BookingMapper.mapToBookingDto(updatedBookingObj);

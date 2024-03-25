@@ -7,14 +7,13 @@ public class BookingMapper {
     public static BookingDto mapToBookingDto(Booking booking) {
         return new BookingDto(
                 booking.getId(),
-                booking.getBus(),
-                booking.getBusNumber(),
+                booking.getBookingId(),
+                booking.getBookingDate(),
                 booking.getPassenger(),
-                booking.getFirstname(),
-                booking.getLastName(),
-                booking.getFromLocation(),
-                booking.getToLocation(),
-                booking.getTotalPrice()
+                booking.getBus(),
+                booking.getBusName(),
+                booking.getFee(),
+                booking.getDepartureDate()
 
         );
     }
@@ -22,14 +21,14 @@ public class BookingMapper {
     public static Booking mapToBooking(BookingDto bookingDto) {
         return new Booking(
                 bookingDto.getId(),
-                bookingDto.getBus(),
-                bookingDto.getBusNumber(),
+                bookingDto.getBookingId(),
+                bookingDto.getBookingDate(),
                 bookingDto.getPassenger(),
-                bookingDto.getFirstname(),
-                bookingDto.getLastName(),
-                bookingDto.getFromLocation(),
-                bookingDto.getToLocation(),
-                bookingDto.getTotalPrice()
+                bookingDto.getBus(),
+                bookingDto.getBusName(),
+                bookingDto.getFee(),
+                bookingDto.getDepartureDate()
+
         );
     }
 }

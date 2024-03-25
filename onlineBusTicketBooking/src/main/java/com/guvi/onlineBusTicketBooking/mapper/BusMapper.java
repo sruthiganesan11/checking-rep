@@ -8,14 +8,22 @@ public class BusMapper {
     public static BusDto mapToBusDto(Bus bus) {
         return new BusDto(
                 bus.getId(),
-                bus.getBusNumber(),
-                bus.getCapacity());
+                bus.getBusName(),
+                bus.getCapacity(),
+                bus.getFromLocation(),
+                bus.getToLocation()
+//                bus.getDepartureTime(),
+        );
     }
 
     public static Bus mapToBus(BusDto busDto) {
         return new Bus(
                 busDto.getId(),
-                busDto.getBusNumber(),
-                busDto.getCapacity());
+                busDto.getBusName(),
+                busDto.getCapacity(),
+                busDto.getFromLocation(),
+                busDto.getToLocation()
+//                busDto.getDepartureTime(),
+        );
     }
 }

@@ -1,13 +1,17 @@
 package com.guvi.onlineBusTicketBooking.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+import java.time.LocalDate;
+
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "booking")
@@ -16,18 +20,22 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long busNumber;
-    @ManyToOne
-    private Bus bus;
-    @ManyToOne
-    private Passenger passenger;
-    private String fromLocation;
-    private String toLocation;
-    private String firstname;
-    private String LastName;
-    private double totalPrice;
 
-    public Booking(Long id, Bus bus, Long busNumber, Passenger passenger, String firstname,
-                   String lastName, String fromLocation, String toLocation, double totalPrice) {
-    }
+    private String bookingId;
+    private String bookingDate;
+
+    @ManyToOne(targetEntity = Passenger.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "passenger_id",referencedColumnName = "id")
+    private Passenger passenger;
+    @ManyToOne(targetEntity = Bus.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "bus_id",referencedColumnName = "id")
+    private Bus bus;
+    private String busName;
+    private int fee;
+
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonFormat(shape =JsonFormat.Shape.STRING,pattern = "yyyy-mm-dd")
+    private LocalDate departureDate;
+
 }
