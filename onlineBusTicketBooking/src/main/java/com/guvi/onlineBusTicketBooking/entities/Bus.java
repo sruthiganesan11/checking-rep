@@ -12,7 +12,7 @@ import java.sql.Time;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Bus")
+@Table(name = "bus")
 @Entity
 public class Bus {
     @Id
