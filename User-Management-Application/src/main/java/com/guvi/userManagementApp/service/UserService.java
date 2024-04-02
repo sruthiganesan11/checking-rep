@@ -1,6 +1,7 @@
-package com.guvi.employeeManagementApp.service;
+package com.guvi.userManagementApp.service;
 
-import com.guvi.employeeManagementApp.dto.UserDto;
+
+import com.guvi.userManagementApp.dto.UserDto;
 
 import java.util.List;
 

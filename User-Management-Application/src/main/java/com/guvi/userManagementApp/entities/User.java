@@ -1,4 +1,4 @@
-package com.guvi.employeeManagementApp.entities;
+package com.guvi.userManagementApp.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

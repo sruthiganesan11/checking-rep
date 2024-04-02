@@ -1,7 +1,8 @@
-package com.guvi.employeeManagementApp.contoller;
+package com.guvi.userManagementApp.contoller;
 
-import com.guvi.employeeManagementApp.dto.UserDto;
-import com.guvi.employeeManagementApp.service.UserService;
+
+import com.guvi.userManagementApp.dto.UserDto;
+import com.guvi.userManagementApp.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

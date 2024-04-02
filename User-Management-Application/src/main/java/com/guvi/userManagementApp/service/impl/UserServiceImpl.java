@@ -1,11 +1,12 @@
-package com.guvi.employeeManagementApp.service.impl;
+package com.guvi.userManagementApp.service.impl;
 
-import com.guvi.employeeManagementApp.dto.UserDto;
-import com.guvi.employeeManagementApp.entities.User;
-import com.guvi.employeeManagementApp.exception.ResourceNotFoundException;
-import com.guvi.employeeManagementApp.mapper.UserMapper;
-import com.guvi.employeeManagementApp.repository.UserRepo;
-import com.guvi.employeeManagementApp.service.UserService;
+
+import com.guvi.userManagementApp.dto.UserDto;
+import com.guvi.userManagementApp.entities.User;
+import com.guvi.userManagementApp.exception.ResourceNotFoundException;
+import com.guvi.userManagementApp.mapper.UserMapper;
+import com.guvi.userManagementApp.repository.UserRepo;
+import com.guvi.userManagementApp.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.guvi.employeeManagementApp.exception;
+package com.guvi.userManagementApp.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

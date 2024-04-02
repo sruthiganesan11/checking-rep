@@ -1,7 +1,8 @@
-package com.guvi.employeeManagementApp.mapper;
+package com.guvi.userManagementApp.mapper;
 
-import com.guvi.employeeManagementApp.dto.UserDto;
-import com.guvi.employeeManagementApp.entities.User;
+
+import com.guvi.userManagementApp.dto.UserDto;
+import com.guvi.userManagementApp.entities.User;
 
 public class UserMapper {
     public static UserDto mapToUserDto(User user) {

@@ -1,6 +1,7 @@
-package com.guvi.employeeManagementApp.repository;
+package com.guvi.userManagementApp.repository;
 
-import com.guvi.employeeManagementApp.entities.User;
+
+import com.guvi.userManagementApp.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<User, Long> {

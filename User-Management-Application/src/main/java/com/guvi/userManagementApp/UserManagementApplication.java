@@ -1,13 +1,13 @@
-package com.guvi.employeeManagementApp;
+package com.guvi.userManagementApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EmployeeManagementApplication {
+public class UserManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmployeeManagementApplication.class, args);
+		SpringApplication.run(UserManagementApplication.class, args);
 	}
 
 }

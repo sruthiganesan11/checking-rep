@@ -1,4 +1,4 @@
-package com.guvi.employeeManagementApp.dto;
+package com.guvi.userManagementApp.dto;
 
 
 import jakarta.persistence.GeneratedValue;
