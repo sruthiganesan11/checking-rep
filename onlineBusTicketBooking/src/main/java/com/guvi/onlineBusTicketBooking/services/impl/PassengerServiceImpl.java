@@ -48,8 +48,13 @@ public class PassengerServiceImpl implements PassengerService {
 
         passenger.setFirstName(updatedPassenger.getFirstName());
         passenger.setLastName(updatedPassenger.getLastName());
+        passenger.setAadharId(updatedPassenger.getAadharId());
+        passenger.setContactNo(updatedPassenger.getContactNo());
         passenger.setEmail(updatedPassenger.getEmail());
-        passenger.setPhoneNumber(updatedPassenger.getPhoneNumber());
+        passenger.setAge(updatedPassenger.getAge());
+        passenger.setJourneyStat(updatedPassenger.getJourneyStat());
+        passenger.setCancelStat(updatedPassenger.getCancelStat());
+
 
         Passenger updatedPassengerObj = passengerRepo.save(passenger);
 

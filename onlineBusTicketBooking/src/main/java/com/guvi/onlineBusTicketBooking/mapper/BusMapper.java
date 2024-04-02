@@ -9,10 +9,13 @@ public class BusMapper {
         return new BusDto(
                 bus.getId(),
                 bus.getBusName(),
-                bus.getCapacity(),
+                bus.getDoj(),
                 bus.getFromLocation(),
-                bus.getToLocation()
-//                bus.getDepartureTime(),
+                bus.getToLocation(),
+                bus.getPrice(),
+                bus.getSeats(),
+                bus.getAvailableSeats()
+
         );
     }
 
@@ -20,10 +23,12 @@ public class BusMapper {
         return new Bus(
                 busDto.getId(),
                 busDto.getBusName(),
-                busDto.getCapacity(),
+                busDto.getDoj(),
                 busDto.getFromLocation(),
-                busDto.getToLocation()
-//                busDto.getDepartureTime(),
+                busDto.getToLocation(),
+                busDto.getPrice(),
+                busDto.getSeats(),
+                busDto.getAvailableSeats()
         );
     }
 }

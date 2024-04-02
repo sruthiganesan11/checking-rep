@@ -38,7 +38,8 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public List<BookingDto> getAllBookings() {
         List<Booking> bookings = bookingRepo.findAll();
-        return bookings.stream().map(BookingMapper::mapToBookingDto).collect(Collectors.toList());
+        return bookings.stream().map(BookingMapper::mapToBookingDto)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -51,7 +52,6 @@ public class BookingServiceImpl implements BookingService {
         booking.setBookingId(updatedBooking.getBookingId());
         booking.setBookingDate(updatedBooking.getBookingDate());
         booking.setPassenger(updatedBooking.getPassenger());
-        booking.setBus(updatedBooking.getBus());
         booking.setBusName(updatedBooking.getBusName());
         booking.setFee(updatedBooking.getFee());
         booking.setDepartureDate(updatedBooking.getDepartureDate());

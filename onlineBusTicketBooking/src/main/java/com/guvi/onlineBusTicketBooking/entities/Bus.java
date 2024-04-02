@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Time;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -19,8 +20,10 @@ public class Bus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String busName;
-    private int capacity;
+    private LocalDate doj;
     private String fromLocation;
     private String toLocation;
-//    private String departureTime;
+    private int price;
+    private int seats;
+    private int availableSeats;
 }

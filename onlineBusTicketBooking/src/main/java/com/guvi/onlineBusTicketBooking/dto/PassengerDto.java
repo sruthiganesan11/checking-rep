@@ -18,7 +18,11 @@ public class PassengerDto {
     private Long id;
     private String firstName;
     private String lastName;
-    private int PhoneNumber;
+    private String aadharId;
+    private int contactNo;
     private String email;
+    private int age;
+    private String journeyStat;
+    private String cancelStat;
 
 }

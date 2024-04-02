@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class BusServiceImpl implements BusService {
 
     private BusRepo busRepo;
+
     @Override
     public BusDto createBus(BusDto busDto) {
 
@@ -47,7 +48,12 @@ public class BusServiceImpl implements BusService {
         );
 
         bus.setBusName(updatedBus.getBusName());
-        bus.setCapacity(updatedBus.getCapacity());
+        bus.setDoj(updatedBus.getDoj());
+        bus.setFromLocation(updatedBus.getFromLocation());
+        bus.setToLocation(updatedBus.getToLocation());
+        bus.setPrice(updatedBus.getPrice());
+        bus.setSeats(updatedBus.getSeats());
+        bus.setAvailableSeats(updatedBus.getAvailableSeats());
 
         Bus updatedBusObj = busRepo.save(bus);
         return BusMapper.mapToBusDto(updatedBusObj);
