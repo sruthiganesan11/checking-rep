@@ -1,13 +1,2 @@
-package com.guvi.employeeManagementApp;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class EmployeeManagementApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+package com.guvi.employeeManagementApp;public class EmployeeManagementApplicationTests {
 }
