@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getEmployee } from "../service/EmpService";
+import "./view.css"
 
 const ViewEmployee = () => {
   const { id } = useParams();
@@ -38,7 +39,7 @@ const ViewEmployee = () => {
     fetchData();
   }, [id]);
   return (
-    <div>
+    <div className="maincontainer">
       <div className="containerView">
         <div className="heading">
           <h1 className="heading1">Employee Details</h1>

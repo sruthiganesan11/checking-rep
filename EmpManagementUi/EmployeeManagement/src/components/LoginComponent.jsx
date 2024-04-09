@@ -17,7 +17,7 @@ const LoginComponent = () => {
     try {
       const response = await loginAPICall(username, password); //API CALL TO LOGIN
       const token = "Bearer " + response.data.accessToken; // add token to header for all other API call
-      const role = "Bearer " +response.data.role;
+      const role = response.data.role;
       storeToken(token);
       saveLoggedInUser(username, role);
       console.log(role);
@@ -29,7 +29,7 @@ const LoginComponent = () => {
           showConfirmButton: "false",
           timer: 5000,
         });
-        navigate("/register");
+        navigate("/employee");
       } else {
         Swal.fire({
           position: "center",

@@ -22,7 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepo employeeRepo;
 
     @Override
-    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+    public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
 
         Optional<Employee> optionalEmployee = employeeRepo.findByEmail(employeeDto.getEmail());
 

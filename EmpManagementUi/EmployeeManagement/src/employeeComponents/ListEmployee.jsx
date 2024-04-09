@@ -5,10 +5,13 @@ import {
   getAllEmployee,
   getEmployee,
 } from "../service/EmpService";
+import { isAdminUser } from "../service/AuthService";
 
 const ListEmployee = () => {
   const [employees, setEmployee] = useState([]);
   const navigate = useNavigate();
+
+  const isAdmin = isAdminUser();
 
   useEffect(() => {
     listEmployee();
@@ -53,18 +56,20 @@ const ListEmployee = () => {
     <div>
       <div>
         <div className="offset-lg-3 col-lg-6">
-          <div className="container">
+          <div className="listContainer">
             <div className="card">
               <div className="card-title">
                 <h2 className="text-center">List Of Employee</h2>
               </div>
               <div className="card-body">
-                <button
-                  className="btn btn-primary mb-2"
-                  onClick={addNewEmployee}
-                >
-                  Add Employee
-                </button>
+                {isAdmin && (
+                  <button
+                    className="btn btn-primary mb-2"
+                    onClick={addNewEmployee}
+                  >
+                    Add Employee
+                  </button>
+                )}
 
                 <div>
                   <table className="table table-bordered table-hover shadow">
@@ -89,20 +94,25 @@ const ListEmployee = () => {
                             >
                               View
                             </button>
-                            <button
-                              className="btn btn-danger"
-                              style={{ marginLeft: "10px" }}
-                              onClick={() => removeEmployee(employee.id)}
-                            >
-                              Delete
-                            </button>
-                            <button
-                              className="btn btn-info"
-                              style={{ marginLeft: "10px" }}
-                              onClick={() => updateEmployee(employee.id)}
-                            >
-                              Update
-                            </button>
+                            {isAdmin && (
+                              <button
+                                className="btn btn-danger"
+                                style={{ marginLeft: "10px" }}
+                                onClick={() => removeEmployee(employee.id)}
+                              >
+                                Delete
+                              </button>
+                            )}
+
+                            {isAdmin && (
+                              <button
+                                className="btn btn-info"
+                                style={{ marginLeft: "10px" }}
+                                onClick={() => updateEmployee(employee.id)}
+                              >
+                                Update
+                              </button>
+                            )}
                           </td>
                         </tr>
                       ))}

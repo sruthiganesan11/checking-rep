@@ -15,21 +15,21 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const register = {name,username,email,password};
+      const register = { name, username, email, password };
       const response = await registerAPICall(register);
       Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "User Register SuccessFully",
-            showConfirmButton: "false",
-            timer: 3000,
-          });
-          console.log(response.data)
-      navigate("/login")
-    }catch(error) {
-      console.log(error)
+        position: "center",
+        icon: "success",
+        title: "User Register SuccessFully",
+        showConfirmButton: "false",
+        timer: 3000,
+      });
+      console.log(response.data);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   return (
     <section className="background">
