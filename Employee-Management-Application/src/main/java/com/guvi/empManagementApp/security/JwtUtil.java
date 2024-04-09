@@ -20,7 +20,7 @@ public class JwtUtil {
                 .setSubject(username)
                 .setIssuer("test.com")
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + expireInMs))
+                .setExpiration(new Date(System.currentTimeMillis() + expireInMs ))
                 .signWith(key)
                 .compact();
     }
