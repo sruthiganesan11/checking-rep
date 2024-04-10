@@ -4,10 +4,11 @@ import ListEmployee from "./employeeComponents/ListEmployee";
 import ViewEmployee from "./employeeComponents/ViewEmployee";
 import AddEmployee from "./employeeComponents/AddEmployee";
 import UpdateEmployee from "./employeeComponents/UpdateEmployee";
-import NavBar from "./components/NavBar";
 import LoginComponent from "./components/LoginComponent";
 import Register from "./components/Register";
 import { isUserLoggedIn } from "./service/AuthService";
+import Header from "./components/Header";
+import "./App.css"
 
 const App = () => {
   function AuthenticatedRoute({ children }) {
@@ -20,7 +21,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        <Header/>
         <Routes>
           <Route
             path="/"
@@ -64,6 +65,7 @@ const App = () => {
           />
           <Route path="/login" element={<LoginComponent />} />
           <Route path="/register" element={<Register />} />
+
         </Routes>
       </BrowserRouter>
     </>
