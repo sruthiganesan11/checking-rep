@@ -1,7 +1,6 @@
 package com.guvi.empManagementApp.service;
 
-import com.guvi.empManagementApp.dto.EmployeeDto;
-import com.guvi.empManagementApp.entities.Employee;
+import com.guvi.empManagementApp.entities.EmployeeDto;
 import com.guvi.empManagementApp.repository.EmployeeRepo;
 import com.guvi.empManagementApp.service.impl.EmployeeServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +20,7 @@ import java.util.Optional;
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
 
-    private Employee employee;
+    private EmployeeDto employeeDto;
     @InjectMocks
     private EmployeeServiceImpl employeeServiceImpl;
 
@@ -33,7 +32,7 @@ public class EmployeeServiceTest {
 
     @BeforeEach
     public void setup() {
-        employee = Employee.builder()
+        employeeDto = EmployeeDto.builder()
                 .firstName("john")
                 .lastName("doe")
                 .email("john@gmail.com")
@@ -42,14 +41,14 @@ public class EmployeeServiceTest {
 
     @Test
     public void givenEmployeeList_whenGetAllEmployee_thenReturnEmployeeList() {
-        Employee employee1 = Employee.builder()
+        EmployeeDto employee1 = EmployeeDto.builder()
                 .firstName("peter")
                 .lastName("doe")
                 .email("peter@gmail.com")
                 .build();
 
-        given(employeeRepo.findAll()).willReturn(List.of(employee, employee1));
-        List<EmployeeDto> employee = employeeServiceImpl.getAllEmployee();
+        given(employeeRepo.findAll()).willReturn(List.of(employeeDto, employee1));
+        List<com.guvi.empManagementApp.dto.EmployeeDto> employee = employeeServiceImpl.getAllEmployee();
         assertThat(employee).isNotNull();
         assertThat(employee.size()).isEqualTo(2);
 
@@ -58,8 +57,8 @@ public class EmployeeServiceTest {
     @Test
     public void givenEmployee_whenGetEmployeesById_thenReturnEmployee() {
 
-        given(employeeRepo.findById(employee.getId())).willReturn(Optional.of(employee));
-        EmployeeDto employees = employeeServiceImpl.getEmployeeById(employee.getId());
+        given(employeeRepo.findById(employeeDto.getId())).willReturn(Optional.of(employeeDto));
+        com.guvi.empManagementApp.dto.EmployeeDto employees = employeeServiceImpl.getEmployeeById(employeeDto.getId());
         assertThat(employees).isNotNull();
 
     }

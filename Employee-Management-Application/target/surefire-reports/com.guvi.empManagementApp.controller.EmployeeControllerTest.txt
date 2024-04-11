@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.guvi.empManagementApp.controller.EmployeeControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.241 s <<< FAILURE! -- in com.guvi.empManagementApp.controller.EmployeeControllerTest
+com.guvi.empManagementApp.controller.EmployeeControllerTest.givenEmployee_whenCreateEmployee_thenReturnEmployee -- Time elapsed: 1.195 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.guvi.empManagementApp.service.EmployeeService.saveEmployee(com.guvi.empManagementApp.dto.EmployeeDto)" because "this.employeeService" is null
+	at com.guvi.empManagementApp.controller.EmployeeControllerTest.givenEmployee_whenCreateEmployee_thenReturnEmployee(EmployeeControllerTest.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

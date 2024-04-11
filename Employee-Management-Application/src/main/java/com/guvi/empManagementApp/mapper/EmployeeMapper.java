@@ -1,12 +1,11 @@
 package com.guvi.empManagementApp.mapper;
 
 
-import com.guvi.empManagementApp.dto.EmployeeDto;
-import com.guvi.empManagementApp.entities.Employee;
+import com.guvi.empManagementApp.entities.EmployeeDto;
 
 public class EmployeeMapper {
-    public static EmployeeDto mapToEmployeeDto(Employee employee) {
-        return new EmployeeDto(
+    public static com.guvi.empManagementApp.dto.EmployeeDto mapToEmployeeDto(EmployeeDto employee) {
+        return new com.guvi.empManagementApp.dto.EmployeeDto(
                 employee.getId(),
                 employee.getFirstName(),
                 employee.getLastName(),
@@ -14,8 +13,8 @@ public class EmployeeMapper {
         );
     }
 
-    public static Employee mapToEmployee(EmployeeDto employeeDto) {
-        return new Employee(
+    public static EmployeeDto mapToEmployee(com.guvi.empManagementApp.dto.EmployeeDto employeeDto) {
+        return new EmployeeDto(
                 employeeDto.getId(),
                 employeeDto.getFirstName(),
                 employeeDto.getLastName(),

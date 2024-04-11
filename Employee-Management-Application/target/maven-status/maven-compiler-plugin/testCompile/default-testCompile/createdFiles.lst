@@ -1,0 +1,3 @@
+com\guvi\empManagementApp\repository\EmployeeRepoTest.class
+com\guvi\empManagementApp\service\EmployeeServiceTest.class
+com\guvi\empManagementApp\controller\EmployeeControllerTest.class

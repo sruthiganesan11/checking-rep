@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: com.guvi.empManagementApp.service.EmployeeServiceTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.995 s <<< FAILURE! -- in com.guvi.empManagementApp.service.EmployeeServiceTest
+com.guvi.empManagementApp.service.EmployeeServiceTest.givenEmployee_whenGetEmployeesById_thenReturnEmployee -- Time elapsed: 0.650 s <<< ERROR!
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+
+Misplaced or misused argument matcher detected here:
+
+-> at com.guvi.empManagementApp.controller.EmployeeControllerTest.givenEmployee_whenCreateEmployee_thenReturnEmployee(EmployeeControllerTest.java:42)
+
+You cannot use argument matchers outside of verification or stubbing.
+Examples of correct usage of argument matchers:
+    when(mock.get(anyInt())).thenReturn(null);
+    doThrow(new RuntimeException()).when(mock).someVoidMethod(any());
+    verify(mock).someMethod(contains("foo"))
+
+This message may appear after an NullPointerException if the last matcher is returning an object 
+like any() but the stubbed method signature expect a primitive argument, in this case,
+use primitive alternatives.
+    when(mock.get(any())); // bad use, will raise NPE
+    when(mock.get(anyInt())); // correct usage use
+
+Also, this error might show up because you use argument matchers with methods that cannot be mocked.
+Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().
+Mocking methods declared on non-public parent classes is not supported.
+
+	at org.mockito.junit.jupiter.MockitoExtension.beforeEach(MockitoExtension.java:159)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	Suppressed: java.lang.NullPointerException: Cannot invoke "java.util.Set.forEach(java.util.function.Consumer)" because the return value of "org.junit.jupiter.api.extension.ExtensionContext$Store.remove(Object, java.lang.Class)" is null
+		at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:190)
+		... 2 more
+

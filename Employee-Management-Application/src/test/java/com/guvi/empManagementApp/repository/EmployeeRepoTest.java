@@ -1,6 +1,6 @@
 package com.guvi.empManagementApp.repository;
 
-import com.guvi.empManagementApp.entities.Employee;
+import com.guvi.empManagementApp.entities.EmployeeDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,11 +17,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class EmployeeRepoTest {
     @Autowired
     private EmployeeRepo employeeRepo;
-    private Employee employee;
+    private EmployeeDto employeeDto;
 
     @BeforeEach
     public void setup() {
-        employee = Employee.builder()
+        employeeDto = EmployeeDto.builder()
                 .firstName("john")
                 .lastName("doe")
                 .email("john@gmail.com")
@@ -33,7 +33,7 @@ public class EmployeeRepoTest {
     public void givenEmployee_whenSave_thenReturnSavedEmployee() {
         //given -> employee
 
-        Employee savedEmployee = employeeRepo.save(employee);
+        EmployeeDto savedEmployee = employeeRepo.save(employeeDto);
 
         assertThat(savedEmployee).isNotNull();
         assertThat(savedEmployee.getId()).isGreaterThan(0);
@@ -41,15 +41,15 @@ public class EmployeeRepoTest {
 
     @Test
     public  void givenEmployeeList_whenFindAll_thenEmployeeList(){
-        Employee employee1=Employee.builder()
+        EmployeeDto employee1= EmployeeDto.builder()
                 .firstName("Tinky")
                 .lastName("Manisha")
                 .email("tinky@gmail.com")
                 .build();
-        employeeRepo.save(employee);
+        employeeRepo.save(employeeDto);
         employeeRepo.save(employee1);
 
-        List<Employee> employeeList = employeeRepo.findAll();
+        List<EmployeeDto> employeeList = employeeRepo.findAll();
         assertThat(employeeList).isNotNull();
         assertThat(employeeList.size()).isEqualTo(2);
 
@@ -57,8 +57,8 @@ public class EmployeeRepoTest {
 
     @Test
     public  void givenEmployeeEmail_whenFindByEmail_thenReturnEmployee() {
-        employeeRepo.save(employee);
-        Employee employeeDb = employeeRepo.findByEmail(employee.getEmail()).get();
+        employeeRepo.save(employeeDto);
+        EmployeeDto employeeDb = employeeRepo.findByEmail(employeeDto.getEmail()).get();
         assertThat(employeeDb).isNotNull();
 
 
@@ -66,19 +66,19 @@ public class EmployeeRepoTest {
 
     @Test
     public void givenEmployee_whenUpdateEmployee_thenReturnUpdatedEmployee() {
-        employeeRepo.save(employee);
-        Employee savedEmployee = employeeRepo.findById(employee.getId()).get();
+        employeeRepo.save(employeeDto);
+        EmployeeDto savedEmployee = employeeRepo.findById(employeeDto.getId()).get();
         savedEmployee.setEmail("john@gmail.com");
-        Employee updatedEmployee = employeeRepo.save(savedEmployee);
+        EmployeeDto updatedEmployee = employeeRepo.save(savedEmployee);
 
         assertThat(updatedEmployee.getEmail()).isEqualTo("john@gmail.com");
     }
 
     @Test
     public void givenEmployee_whenDelete_thenRemoveEmployee() {
-        employeeRepo.save(employee);
-        employeeRepo.deleteById(employee.getId());
-        Optional<Employee> employeeOptional = employeeRepo.findById(employee.getId());
+        employeeRepo.save(employeeDto);
+        employeeRepo.deleteById(employeeDto.getId());
+        Optional<EmployeeDto> employeeOptional = employeeRepo.findById(employeeDto.getId());
         assertThat(employeeOptional).isEmpty();
     }
 

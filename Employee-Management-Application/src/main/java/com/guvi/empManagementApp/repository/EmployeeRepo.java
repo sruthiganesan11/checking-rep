@@ -1,12 +1,12 @@
 package com.guvi.empManagementApp.repository;
 
 
-import com.guvi.empManagementApp.entities.Employee;
+import com.guvi.empManagementApp.entities.EmployeeDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface EmployeeRepo extends JpaRepository<Employee, Long> {
+public interface EmployeeRepo extends JpaRepository<EmployeeDto, Long> {
 
-    Optional<Employee> findByEmail(String email);
+    Optional<EmployeeDto> findByEmail(String email);
 }
