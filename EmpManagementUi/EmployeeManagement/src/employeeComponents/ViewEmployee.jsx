@@ -45,7 +45,7 @@ const ViewEmployee = () => {
           <h1 className="heading1">Employee Details</h1>
         </div>
         <div className="main-content">
-          <div class="employee-details">
+          <div className="employee-details">
             <h5>The employee id is : {id}</h5>
             <h5>
               The employee Name is : {firstName} {lastName}
