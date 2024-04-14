@@ -1,6 +1,6 @@
 package com.guvi.empManagementApp.service;
 
-import com.guvi.empManagementApp.entities.EmployeeDto;
+import com.guvi.empManagementApp.entities.Employee;
 import com.guvi.empManagementApp.repository.EmployeeRepo;
 import com.guvi.empManagementApp.service.impl.EmployeeServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +20,7 @@ import java.util.Optional;
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
 
-    private EmployeeDto employeeDto;
+    private Employee employeeDto;
     @InjectMocks
     private EmployeeServiceImpl employeeServiceImpl;
 
@@ -32,7 +32,7 @@ public class EmployeeServiceTest {
 
     @BeforeEach
     public void setup() {
-        employeeDto = EmployeeDto.builder()
+        employeeDto = Employee.builder()
                 .firstName("john")
                 .lastName("doe")
                 .email("john@gmail.com")
@@ -41,7 +41,7 @@ public class EmployeeServiceTest {
 
     @Test
     public void givenEmployeeList_whenGetAllEmployee_thenReturnEmployeeList() {
-        EmployeeDto employee1 = EmployeeDto.builder()
+        Employee employee1 = Employee.builder()
                 .firstName("peter")
                 .lastName("doe")
                 .email("peter@gmail.com")

@@ -1,7 +1,8 @@
 package com.guvi.empManagementApp.service.impl;
 
 
-import com.guvi.empManagementApp.entities.EmployeeDto;
+import com.guvi.empManagementApp.dto.EmployeeDto;
+import com.guvi.empManagementApp.entities.Employee;
 import com.guvi.empManagementApp.exception.EmailAlreadyExistException;
 import com.guvi.empManagementApp.exception.ResourceNotFoundException;
 import com.guvi.empManagementApp.mapper.EmployeeMapper;
@@ -21,16 +22,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepo employeeRepo;
 
     @Override
-    public com.guvi.empManagementApp.dto.EmployeeDto saveEmployee(com.guvi.empManagementApp.dto.EmployeeDto employeeDto) {
+    public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
 
-        Optional<EmployeeDto> optionalEmployee = employeeRepo.findByEmail(employeeDto.getEmail());
+        Optional<Employee> optionalEmployee = employeeRepo.findByEmail(employeeDto.getEmail());
 
         if (optionalEmployee.isPresent()) {
             throw new EmailAlreadyExistException("Email Already Exist");
         }
 
-        EmployeeDto employee = EmployeeMapper.mapToEmployee(employeeDto);
-        EmployeeDto savedEmployee = employeeRepo.save(employee);
+        Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
+        Employee savedEmployee = employeeRepo.save(employee);
 
         return EmployeeMapper.mapToEmployeeDto(savedEmployee);
     }
@@ -38,26 +39,26 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public com.guvi.empManagementApp.dto.EmployeeDto getEmployeeById(Long employeeId) {
 
-        EmployeeDto employee = employeeRepo.findById(employeeId)
+        Employee employee = employeeRepo.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException
                         ("Employee", "id", employeeId));
         return EmployeeMapper.mapToEmployeeDto(employee);
     }
 
     @Override
-    public List<com.guvi.empManagementApp.dto.EmployeeDto> getAllEmployee() {
-        List<EmployeeDto> employees = employeeRepo.findAll();
+    public List<EmployeeDto> getAllEmployee() {
+        List<Employee> employees = employeeRepo.findAll();
         return employees.stream().map(EmployeeMapper::mapToEmployeeDto)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public com.guvi.empManagementApp.dto.EmployeeDto updateEmployee(Long employeeId, com.guvi.empManagementApp.dto.EmployeeDto updatedEmployee) {
-        EmployeeDto employee = employeeRepo.findById(employeeId)
+    public EmployeeDto updateEmployee(Long employeeId, EmployeeDto updatedEmployee) {
+        Employee employee = employeeRepo.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException
                         ("Employee", "id", employeeId));
 
-        Optional<EmployeeDto> optionalEmployee = employeeRepo.findByEmail(updatedEmployee.getEmail());
+        Optional<Employee> optionalEmployee = employeeRepo.findByEmail(updatedEmployee.getEmail());
 
         if (optionalEmployee.isPresent()) {
             throw new EmailAlreadyExistException("Email Already Exist");
@@ -67,14 +68,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setLastName(updatedEmployee.getLastName());
         employee.setEmail(updatedEmployee.getEmail());
 
-        EmployeeDto updatedEmployeeObj = employeeRepo.save(employee);
+        Employee updatedEmployeeObj = employeeRepo.save(employee);
         return EmployeeMapper.mapToEmployeeDto(updatedEmployeeObj);
     }
 
     @Override
     public void deleteEmployee(Long employeeId) {
 
-        EmployeeDto employee = employeeRepo.findById(employeeId)
+        Employee employee = employeeRepo.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException
                         ("Employee", "id", employeeId));
         employeeRepo.deleteById(employeeId);

@@ -1,7 +1,7 @@
 package com.guvi.empManagementApp.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.guvi.empManagementApp.entities.EmployeeDto;
+import com.guvi.empManagementApp.entities.Employee;
 import com.guvi.empManagementApp.service.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,11 +26,11 @@ class EmployeeControllerTest {
     private EmployeeService employeeService;
     @Autowired
     private ObjectMapper objectMapper;
-    private EmployeeDto employeeDto;
+    private Employee employee;
 
     @BeforeEach
     public void setup() {
-        employeeDto = EmployeeDto.builder()
+        employee = Employee.builder()
                 .firstName("john")
                 .lastName("doe")
                 .email("john@gmail.com")
@@ -43,11 +43,11 @@ class EmployeeControllerTest {
 
         ResultActions response = mockMvc.perform(post("/api/employee")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(employeeDto)));
+                .content(objectMapper.writeValueAsString(employee)));
         response.andDo(print()).andExpect(status().isCreated())
-                .andExpect(jsonPath("$.firstName", is(employeeDto.getFirstName())))
-                .andExpect(jsonPath("$.lastName", is(employeeDto.getLastName())))
-                .andExpect(jsonPath("$.email", is(employeeDto.getEmail())));
+                .andExpect(jsonPath("$.firstName", is(employee.getFirstName())))
+                .andExpect(jsonPath("$.lastName", is(employee.getLastName())))
+                .andExpect(jsonPath("$.email", is(employee.getEmail())));
 
     }
 
