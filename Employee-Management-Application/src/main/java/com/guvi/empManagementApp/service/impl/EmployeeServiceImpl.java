@@ -37,7 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public com.guvi.empManagementApp.dto.EmployeeDto getEmployeeById(Long employeeId) {
+    public EmployeeDto getEmployeeById(Long employeeId) {
 
         Employee employee = employeeRepo.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException
