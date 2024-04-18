@@ -29,7 +29,7 @@ public class PassengerServiceImpl implements PassengerService {
     public PassengerDto getPassengerById(Long passengerId) {
         Passenger passenger = passengerRepo.findById(passengerId)
                 .orElseThrow(() -> new ResourceNotFoundException
-                        ("Passenger not exists with the given id " + passengerId));
+                        ("Passenger", "id ", passengerId));
         return PassengerMapper.mapToPassengerDto(passenger);
     }
 
@@ -43,7 +43,7 @@ public class PassengerServiceImpl implements PassengerService {
     public PassengerDto updatePassenger(Long passengerId, PassengerDto updatedPassenger) {
 
         Passenger passenger = passengerRepo.findById(passengerId).orElseThrow(
-                () -> new ResourceNotFoundException("Passenger is not exists with the given id " + passengerId)
+                () -> new ResourceNotFoundException("Passenger", "id ", passengerId)
         );
 
         passenger.setFirstName(updatedPassenger.getFirstName());
@@ -52,9 +52,6 @@ public class PassengerServiceImpl implements PassengerService {
         passenger.setContactNo(updatedPassenger.getContactNo());
         passenger.setEmail(updatedPassenger.getEmail());
         passenger.setAge(updatedPassenger.getAge());
-        passenger.setJourneyStat(updatedPassenger.getJourneyStat());
-        passenger.setCancelStat(updatedPassenger.getCancelStat());
-
 
         Passenger updatedPassengerObj = passengerRepo.save(passenger);
 
@@ -62,13 +59,32 @@ public class PassengerServiceImpl implements PassengerService {
     }
 
     @Override
+    public PassengerDto findByEmail(String email) {
+        Passenger passenger = passengerRepo.findByEmail(email);
+        return PassengerMapper.mapToPassengerDto(passenger);
+    }
+
+    @Override
+    public PassengerDto cancelTicket(Long id) {
+        Passenger passenger = passengerRepo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
+        if (!passenger.isCancelStat()) {
+            passenger.setCancelStat(Boolean.TRUE);
+        }
+        Passenger updatedPassenger = passengerRepo.save(passenger);
+        return PassengerMapper.mapToPassengerDto(updatedPassenger);
+    }
+
+    @Override
     public void deletePassenger(Long passengerId) {
 
         Passenger passenger = passengerRepo.findById(passengerId).orElseThrow(
-                () -> new ResourceNotFoundException("Passenger is not exists with the given id " + passengerId)
+                () -> new ResourceNotFoundException("Passenger", "id", passengerId)
         );
 
         passengerRepo.deleteById(passengerId);
     }
+
+
 }
 

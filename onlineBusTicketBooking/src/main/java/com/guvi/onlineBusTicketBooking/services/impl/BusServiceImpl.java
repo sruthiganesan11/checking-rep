@@ -9,6 +9,7 @@ import com.guvi.onlineBusTicketBooking.services.BusService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +20,7 @@ public class BusServiceImpl implements BusService {
     private BusRepo busRepo;
 
     @Override
-    public BusDto createBus(BusDto busDto) {
+    public BusDto addBus(BusDto busDto) {
 
         Bus bus = BusMapper.mapToBus(busDto);
         Bus savedBus = busRepo.save(bus);
@@ -30,7 +31,7 @@ public class BusServiceImpl implements BusService {
     public BusDto getBusById(Long busId) {
         Bus bus = busRepo.findById(busId)
                 .orElseThrow(() -> new ResourceNotFoundException
-                        ("Bus not exists with the given id " + busId));
+                        ("Bus "," id " , busId));
         return BusMapper.mapToBusDto(bus);
     }
 
@@ -44,26 +45,27 @@ public class BusServiceImpl implements BusService {
     public BusDto updateBus(Long busId, BusDto updatedBus) {
 
         Bus bus = busRepo.findById(busId).orElseThrow(
-                () -> new ResourceNotFoundException("Bus with the given id is not exists")
+                () -> new ResourceNotFoundException("Bus "," id " ,busId)
         );
 
         bus.setBusName(updatedBus.getBusName());
-        bus.setDoj(updatedBus.getDoj());
         bus.setFromLocation(updatedBus.getFromLocation());
         bus.setToLocation(updatedBus.getToLocation());
-        bus.setPrice(updatedBus.getPrice());
         bus.setSeats(updatedBus.getSeats());
         bus.setAvailableSeats(updatedBus.getAvailableSeats());
+        bus.setDepartureDate(updatedBus.getDepartureDate());
+        bus.setPrice(updatedBus.getPrice());
 
         Bus updatedBusObj = busRepo.save(bus);
         return BusMapper.mapToBusDto(updatedBusObj);
     }
 
+
     @Override
     public void deleteBus(Long busId) {
 
         Bus bus = busRepo.findById(busId).orElseThrow(
-                () -> new ResourceNotFoundException("Bus with the given id is not exists")
+                () -> new ResourceNotFoundException("Bus "," id " ,busId)
         );
 
         busRepo.deleteById(busId);

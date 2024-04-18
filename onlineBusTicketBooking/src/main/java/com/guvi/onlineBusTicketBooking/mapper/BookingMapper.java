@@ -10,7 +10,6 @@ public class BookingMapper {
                 booking.getBookingId(),
                 booking.getBookingDate(),
                 booking.getPassenger(),
-                booking.getBus(),
                 booking.getBusName(),
                 booking.getFee(),
                 booking.getDepartureDate()
@@ -24,7 +23,6 @@ public class BookingMapper {
                 bookingDto.getBookingId(),
                 bookingDto.getBookingDate(),
                 bookingDto.getPassenger(),
-                bookingDto.getBus(),
                 bookingDto.getBusName(),
                 bookingDto.getFee(),
                 bookingDto.getDepartureDate()

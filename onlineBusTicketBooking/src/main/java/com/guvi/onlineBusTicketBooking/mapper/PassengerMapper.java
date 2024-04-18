@@ -14,8 +14,9 @@ public class PassengerMapper {
                 passenger.getContactNo(),
                 passenger.getEmail(),
                 passenger.getAge(),
-                passenger.getJourneyStat(),
-                passenger.getCancelStat());
+                passenger.isJourneyStat(),
+                passenger.isCancelStat()
+        );
 
     }
 
@@ -28,8 +29,8 @@ public class PassengerMapper {
                 passengerDto.getContactNo(),
                 passengerDto.getEmail(),
                 passengerDto.getAge(),
-                passengerDto.getJourneyStat(),
-                passengerDto.getCancelStat());
+                passengerDto.isJourneyStat(),
+                passengerDto.isCancelStat());
     }
 
 }

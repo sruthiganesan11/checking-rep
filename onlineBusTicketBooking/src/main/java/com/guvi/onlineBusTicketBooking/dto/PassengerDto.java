@@ -1,28 +1,27 @@
 package com.guvi.onlineBusTicketBooking.dto;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Table(name = "Passenger")
-@Entity
+@AllArgsConstructor
 public class PassengerDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String firstName;
+
     private String lastName;
+
     private String aadharId;
-    private int contactNo;
+
+    private String contactNo;
+
     private String email;
+
     private int age;
-    private String journeyStat;
-    private String cancelStat;
+
+    private boolean journeyStat;
+
+    private boolean cancelStat;
 
 }

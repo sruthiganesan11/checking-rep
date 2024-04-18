@@ -10,32 +10,32 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+@Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "booking")
-@Entity
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String bookingId;
+
     private String bookingDate;
 
-    @ManyToOne(targetEntity = Passenger.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "passenger_id",referencedColumnName = "id")
+    @ManyToOne(targetEntity = Passenger.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "passenger_id", referencedColumnName = "id")
     private Passenger passenger;
-    @ManyToOne(targetEntity = Bus.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "bus_id",referencedColumnName = "id")
-    private Bus bus;
+
     private String busName;
+
     private int fee;
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonFormat(shape =JsonFormat.Shape.STRING,pattern = "yyyy-mm-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd")
     private LocalDate departureDate;
 
 }

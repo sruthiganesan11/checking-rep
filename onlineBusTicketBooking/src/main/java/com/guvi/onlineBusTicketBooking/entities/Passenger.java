@@ -1,28 +1,41 @@
 package com.guvi.onlineBusTicketBooking.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "passenger")
+@Builder
 @Entity
+@Table(name = "passenger")
 public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String firstName;
+
+    @Column(nullable = false)
     private String lastName;
+
+    @Column(nullable = false)
     private String aadharId;
-    private int contactNo;
+
+    @Column(nullable = false)
+    private String contactNo;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private int age;
-    private String journeyStat;
-    private String cancelStat;
+
+    @Column(nullable = false, name = "JourneyStatus")
+    private boolean journeyStat;
+
+    @Column(nullable = false, name = "TicketCancelled")
+    private boolean cancelStat;
 
 }

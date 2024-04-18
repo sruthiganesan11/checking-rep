@@ -5,7 +5,7 @@ import com.guvi.onlineBusTicketBooking.dto.BusDto;
 import java.util.List;
 
 public interface BusService {
-    BusDto createBus(BusDto busDto);
+    BusDto addBus(BusDto busDto);
 
     BusDto getBusById(Long busID);
 

@@ -16,4 +16,8 @@ public interface PassengerService {
     PassengerDto updatePassenger(Long passengerId , PassengerDto updatedPassenger);
 
     void deletePassenger(Long passengerId);
+
+    PassengerDto findByEmail(String email);
+
+    PassengerDto cancelTicket(Long id);
 }

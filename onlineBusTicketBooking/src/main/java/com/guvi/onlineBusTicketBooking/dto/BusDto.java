@@ -1,5 +1,11 @@
 package com.guvi.onlineBusTicketBooking.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,14 +23,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 
 public class BusDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String busName;
-    private LocalDate doj;
+
     private String fromLocation;
+
     private String toLocation;
-    private int price;
+
     private int seats;
+
     private int availableSeats;
+
+    private LocalDate departureDate;
+
+    private int price;
 }

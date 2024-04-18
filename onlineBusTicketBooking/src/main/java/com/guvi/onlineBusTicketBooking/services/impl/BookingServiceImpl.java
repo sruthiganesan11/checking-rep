@@ -2,6 +2,7 @@ package com.guvi.onlineBusTicketBooking.services.impl;
 
 import com.guvi.onlineBusTicketBooking.dto.BookingDto;
 import com.guvi.onlineBusTicketBooking.entities.Booking;
+import com.guvi.onlineBusTicketBooking.entities.Passenger;
 import com.guvi.onlineBusTicketBooking.exception.ResourceNotFoundException;
 import com.guvi.onlineBusTicketBooking.mapper.BookingMapper;
 import com.guvi.onlineBusTicketBooking.repos.BookingRepo;
@@ -19,7 +20,7 @@ public class BookingServiceImpl implements BookingService {
     private BookingRepo bookingRepo;
 
     @Override
-    public BookingDto createBooking(BookingDto bookingDto) {
+    public BookingDto addBooking(BookingDto bookingDto) {
 
         Booking booking = BookingMapper.mapToBooking(bookingDto);
         Booking savedBooking = bookingRepo.save(booking);
@@ -31,7 +32,7 @@ public class BookingServiceImpl implements BookingService {
     public BookingDto getBookingById(Long bookingId) {
         Booking booking = bookingRepo.findById(bookingId)
                 .orElseThrow(() -> new ResourceNotFoundException
-                        ("Booking not exists with the given id " + bookingId));
+                        ("Bookings", " id ", bookingId));
         return BookingMapper.mapToBookingDto(booking);
     }
 
@@ -42,32 +43,12 @@ public class BookingServiceImpl implements BookingService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public BookingDto updateBookings(Long bookingId, BookingDto updatedBooking) {
-        Booking booking = bookingRepo.findById(bookingId)
-                .orElseThrow(() ->new ResourceNotFoundException(
-                        "Bookings with the given id is not exists " + bookingId));
-
-        booking.setId(updatedBooking.getId());
-        booking.setBookingId(updatedBooking.getBookingId());
-        booking.setBookingDate(updatedBooking.getBookingDate());
-        booking.setPassenger(updatedBooking.getPassenger());
-        booking.setBusName(updatedBooking.getBusName());
-        booking.setFee(updatedBooking.getFee());
-        booking.setDepartureDate(updatedBooking.getDepartureDate());
-
-
-        Booking updatedBookingObj = bookingRepo.save(booking);
-        return BookingMapper.mapToBookingDto(updatedBookingObj);
-    }
 
     @Override
-    public void deleteBooking(Long bookingId) {
-
-        Booking booking = bookingRepo.findById(bookingId)
-                .orElseThrow(() ->new ResourceNotFoundException(
-                        "Bookings with the given id is not exists " + bookingId));
-        bookingRepo.deleteById(bookingId);
+    public BookingDto getByPassengerId(Long id) {
+        Booking booking = bookingRepo.findByPassenger_id(id);
+        return BookingMapper.mapToBookingDto(booking);
     }
+
 }
 
