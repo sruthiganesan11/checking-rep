@@ -3,7 +3,6 @@ package com.guvi.hospitalManagementSystem.service;
 import com.guvi.hospitalManagementSystem.dto.AppointmentDto;
 
 import java.util.List;
-
 public interface AppointmentService {
 
     AppointmentDto saveAppointment(AppointmentDto appointmentDto);
@@ -11,6 +10,7 @@ public interface AppointmentService {
     AppointmentDto getAppointmentById(Long appointmentId);
 
     List<AppointmentDto> getAllAppointments();
+    AppointmentDto getByPatientId(Long id);
 
     void deleteAppointment(Long appointmentId);
 

@@ -49,6 +49,13 @@ public class AppointmentController {
 
     }
 
+    //Getmapping is to get  the appointment details based on id
+    @GetMapping("/patient/{id}")
+    public ResponseEntity<AppointmentDto> getByPatientId(@PathVariable("id") Long id) {
+        AppointmentDto appointmentDto = appointmentService.getByPatientId(id);
+        return ResponseEntity.ok(appointmentDto);
+    }
+
     //Putmapping is to update the appointment details when id is given
     @PutMapping("cancelAppointment/{id}")
     public ResponseEntity<AppointmentDto> cancelTicket(@PathVariable("id") Long id) {

@@ -7,7 +7,6 @@ import com.guvi.hospitalManagementSystem.mapper.DoctorMapper;
 import com.guvi.hospitalManagementSystem.repository.DoctorRepo;
 import com.guvi.hospitalManagementSystem.service.DoctorService;
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
