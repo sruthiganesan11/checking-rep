@@ -21,7 +21,7 @@ public class PassengerController {
     private PassengerRepo passengerRepo;
 
     @PostMapping
-    public ResponseEntity<PassengerDto> createPassenger(@RequestBody PassengerDto passengerDto) {
+    public ResponseEntity<PassengerDto> savePassenger(@RequestBody PassengerDto passengerDto) {
         PassengerDto savedPassenger = passengerService.createPassenger(passengerDto);
         return new ResponseEntity<>(savedPassenger, HttpStatus.CREATED);
     }

@@ -1,42 +1,16 @@
-import React from "react";
-import "./AddBus";
-import { addBus } from "../services/Bus";
-import { useNavigate } from "react-router";
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 const Admin = () => {
-  function savedBus(e) {
-    e.preventDefault();
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const bus = {
-      busName,
-      departureDate,
-      fromLocation,
-      toLocation,
-      price,
-      seats,
-      availableSeats,
-    };
-    console.log(bus);
-
-    addBus(bus).then((response) => {
-      console.log(response.data);
-      navigate("/listbus");
-    });
+  const handleLogout = () => {
+    log
   }
-  <br />;
-
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1>Admin</h1>
-    </div>
-  );
-};
+    <div>Admin</div>
+  )
+}
 
-export default Admin;
+export default Admin

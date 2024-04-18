@@ -1,5 +1,8 @@
 package com.guvi.onlineBusTicketBooking.controllers;
+
 import com.guvi.onlineBusTicketBooking.dto.BusDto;
+import com.guvi.onlineBusTicketBooking.entities.Bus;
+import com.guvi.onlineBusTicketBooking.repos.BusRepo;
 import com.guvi.onlineBusTicketBooking.services.BusService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -7,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin("*")
 @AllArgsConstructor
@@ -15,6 +19,7 @@ import java.util.List;
 public class BusController {
 
     private BusService busService;
+    private BusRepo busRepo;
 
     @PostMapping
     public ResponseEntity<BusDto> createBus(@RequestBody BusDto busDto) {
@@ -35,15 +40,31 @@ public class BusController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<BusDto> updateBus(@PathVariable("id") Long busId ,
+    public ResponseEntity<BusDto> updateBus(@PathVariable("id") Long busId,
                                             @RequestBody BusDto updatedBus) {
-        BusDto busDto = busService.updateBus(busId,updatedBus);
-        return  ResponseEntity.ok(busDto);
+        BusDto busDto = busService.updateBus(busId, updatedBus);
+        return ResponseEntity.ok(busDto);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteBus(@PathVariable("id") Long busId) {
         busService.deleteBus(busId);
         return ResponseEntity.ok("Bus deleted successfully!");
+    }
+
+    @PutMapping("/updateAvailableTickets/{bus_id}/{number}")
+    void updateAvailableTickets(@PathVariable("bus_id") Long bus_id
+            , @PathVariable("number") int number) {
+        List<Bus> list = busRepo.findAll();
+        System.out.println(number);
+
+        for (Bus bus : list) {
+            if (Objects.equals(bus.getId(), bus_id)) {
+                System.out.println(bus.getAvailableSeats());
+                bus.setAvailableSeats(bus.getAvailableSeats() - number);
+                busRepo.save(bus);
+                System.out.println(bus.getAvailableSeats());
+            }
+        }
     }
 }

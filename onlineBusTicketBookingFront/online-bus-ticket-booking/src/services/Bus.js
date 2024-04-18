@@ -13,3 +13,5 @@ export const updatebus = (id, bus) =>
 
 export const deletebus = (id) => axios.delete(BASE_REST_API_URL + "/" + id);
 
+export const updateTickets = (busid, num) =>
+  axios.put(Base_URL1 + "/" + busid + "/" + num);
