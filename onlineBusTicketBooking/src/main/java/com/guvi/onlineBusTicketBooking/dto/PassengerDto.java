@@ -8,9 +8,7 @@ import lombok.*;
 public class PassengerDto {
     private Long id;
 
-    private String firstName;
-
-    private String lastName;
+    private String name;
 
     private String aadharId;
 

@@ -4,6 +4,7 @@ import com.guvi.onlineBusTicketBooking.dto.BusDto;
 import com.guvi.onlineBusTicketBooking.entities.Bus;
 import com.guvi.onlineBusTicketBooking.repos.BusRepo;
 import com.guvi.onlineBusTicketBooking.services.BusService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +41,7 @@ public class BusController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<BusDto> updateBus(@PathVariable("id") Long busId,
-                                            @RequestBody BusDto updatedBus) {
+    public ResponseEntity<BusDto> updateBus(@PathVariable("id") Long busId, @RequestBody @Valid BusDto updatedBus) {
         BusDto busDto = busService.updateBus(busId, updatedBus);
         return ResponseEntity.ok(busDto);
     }

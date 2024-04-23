@@ -46,8 +46,7 @@ public class PassengerServiceImpl implements PassengerService {
                 () -> new ResourceNotFoundException("Passenger", "id ", passengerId)
         );
 
-        passenger.setFirstName(updatedPassenger.getFirstName());
-        passenger.setLastName(updatedPassenger.getLastName());
+        passenger.setName(updatedPassenger.getName());
         passenger.setAadharId(updatedPassenger.getAadharId());
         passenger.setContactNo(updatedPassenger.getContactNo());
         passenger.setEmail(updatedPassenger.getEmail());
