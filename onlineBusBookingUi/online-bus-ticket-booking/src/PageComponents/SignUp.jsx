@@ -34,7 +34,7 @@ const SignUp = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/");
+        navigate("/login");
       }
     } catch (error) {
       console.error(error);

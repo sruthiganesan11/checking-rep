@@ -10,7 +10,7 @@ const Home = () => {
         title="Your Journey Your Story"
         text="Click here to Choose Your Favourite Destination."
         buttonText="Travel Plan"
-        url="/destination"
+        url="/login"
         btnClass="show"
       />
     </div>

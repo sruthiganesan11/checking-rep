@@ -1,5 +1,11 @@
-.busBody {
-  margin-top: 15%;
+.seatbg{
+  background-image: url(../assets/seat1.webp);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed !important;
+  width: 100% !important;
+  background-size: cover;
+  background-position: center;
 }
 
 .center {
@@ -8,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, #edede6, #fbec5d);
+  
 }
 .tickets {
   width: 550px;

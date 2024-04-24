@@ -15,6 +15,7 @@
   color: black;
   border-radius: 15px;
   padding: 30px 40px;
+  opacity: 10;
 }
 
 .wrapper h2 {
@@ -72,6 +73,7 @@
   margin-right: 4px;
   font-size: 1rem !important;
   font-weight: 300 !important;
+  opacity: 10;
 }
 
 .remember-forget a {

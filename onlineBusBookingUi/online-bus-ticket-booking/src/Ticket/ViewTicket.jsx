@@ -8,7 +8,7 @@ const ViewTicket = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [passengerid, setPassenger] = useState();
-  const [passengerName, setPassengerName] = useState("");
+  const [name, setName] = useState("");
   const [aadhar, setAdharId] = useState();
   const [age, setAge] = useState();
   const [email, setEmail] = useState("");
@@ -31,7 +31,7 @@ const ViewTicket = () => {
           const passenger = response.data;
           // console.log(passenger);
           setPassenger(response.data.id);
-          setPassengerName(response.data.passengerName);
+          setName(response.data.name);
           setAdharId(response.data.aadharId);
           setAge(response.data.age);
           setEmail(response.data.email);
@@ -56,7 +56,7 @@ const ViewTicket = () => {
           <ul className="viewTicketItem">
             <li className="viewTicketItem-list">Passenger Id: {passengerid}</li>
             <li className="viewTicketItem-list">
-              Passenger Name: {passengerName}
+              Passenger Name: {name}
             </li>
             <li className="viewTicketItem-list">Aadhar Id: {aadhar}</li>
             <li className="viewTicketItem-list">Age: {age}</li>

@@ -15,6 +15,7 @@
   color: white;
   border-radius: 15px;
   padding: 30px 40px;
+  opacity: 10;
 }
 
 .busHeading {
@@ -22,6 +23,7 @@
   font-size: 3.2rem;
   text-align: center;
   margin-bottom: 20px;
+  opacity: 10;
 }
 
 .buswrappers .addbusinputBox {
@@ -29,6 +31,7 @@
   width: 100%;
   height: 45px;
   margin: 15px 0;
+  opacity: 10;
 }
 
 .addbusinputBox input {
@@ -41,6 +44,7 @@
   border-radius: 40px;
   color: white;
   font-size: 20px;
+  opacity: 10;
   padding: 15px 20px 15px 15px;
 }
 

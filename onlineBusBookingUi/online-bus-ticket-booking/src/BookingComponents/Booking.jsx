@@ -75,7 +75,7 @@ const Booking = () => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire("Payment success!", "", "");
-        navigate("/destiantion");
+        navigate("/destination");
       } else if (result.isDenied) {
         Swal.fire("Pay amount during your Journey", "");
         navigate("/destination");

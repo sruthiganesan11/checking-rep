@@ -28,8 +28,9 @@ const Seat = () => {
     navigate(`/bookNow/${id}`);
   };
   return (
-    <section>
-      <div className="busBody">
+    <section className="seatbg">
+      <br/>
+      <div className="busBody" style={{marginTop:"5rem"}}>
         <div className="center">
           <div className="tickets">
             <div className="ticket-selector">
@@ -49,7 +50,7 @@ const Seat = () => {
               </div>
               <div className="timings">
                 <div className="dates"></div>
-                <div class="times"></div>
+                <div className="times"></div>
               </div>
             </div>
             <div className="price">

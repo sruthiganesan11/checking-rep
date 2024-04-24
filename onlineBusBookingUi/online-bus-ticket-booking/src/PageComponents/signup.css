@@ -15,6 +15,7 @@
     color: white;
     border-radius: 15px;
     padding: 30px 40px;
+    opacity: 10;
   }
   
   .wrappers h2 {
@@ -42,6 +43,7 @@
     color: white;
     font-size: 20px;
     padding: 15px 20px 15px 15px;
+    opacity: 10;
   }
   
   .signuplabel {
