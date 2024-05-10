@@ -22,7 +22,7 @@ public class Patient {
     private String patientName;
 
     @Column(nullable = false)
-    private String contactNumber;
+    private String contactNo;
 
     @Column(nullable = false)
     private String email;
@@ -31,5 +31,5 @@ public class Patient {
     private int age;
 
     @Column(nullable = false)
-    private String medicalHistory;
+    private String problem;
 }

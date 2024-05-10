@@ -36,5 +36,11 @@ public class Medication {
     private String medicineName;
 
     @Column(nullable = false)
-    private String description;
+    private int morning;
+
+    @Column(nullable = false)
+    private int afternoon;
+    
+    @Column(nullable = false)
+    private int night;
 }

@@ -9,10 +9,10 @@ public class PatientMapper {
 
                 patient.getId(),
                 patient.getPatientName(),
-                patient.getContactNumber(),
+                patient.getContactNo(),
                 patient.getEmail(),
                 patient.getAge(),
-                patient.getMedicalHistory()
+                patient.getProblem()
 
         );
     }
@@ -21,10 +21,10 @@ public class PatientMapper {
         return new Patient(
                 patientDto.getId(),
                 patientDto.getPatientName(),
-                patientDto.getContactNumber(),
+                patientDto.getContactNo(),
                 patientDto.getEmail(),
                 patientDto.getAge(),
-                patientDto.getMedicalHistory()
+                patientDto.getProblem()
         );
     }
 }

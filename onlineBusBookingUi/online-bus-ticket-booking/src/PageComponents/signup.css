@@ -1,5 +1,5 @@
 .signUpbg {
-    background-image: url(../assets/signup2.jpg);
+    background-image: url(../assets/signup1.jpg);
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed !important;
@@ -16,6 +16,7 @@
     border-radius: 15px;
     padding: 30px 40px;
     opacity: 10;
+    backdrop-filter: blur(7px);
   }
   
   .wrappers h2 {

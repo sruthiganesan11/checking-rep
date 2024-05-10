@@ -11,11 +11,11 @@ public class PatientDto {
 
     private String patientName;
 
-    private String contactNumber;
+    private String contactNo;
 
     private String email;
 
     private int age;
 
-    private String medicalHistory;
+    private String problem;
 }

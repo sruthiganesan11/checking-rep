@@ -11,7 +11,9 @@ public class MedicationMapper {
                 medication.getPatientName(),
                 medication.getAppointmentDate(),
                 medication.getMedicineName(),
-                medication.getDescription()
+                medication.getMorning(),
+                medication.getAfternoon(),
+                medication.getNight()
 
         );
     }
@@ -23,7 +25,9 @@ public class MedicationMapper {
                 medicationDto.getPatientName(),
                 medicationDto.getAppointmentDate(),
                 medicationDto.getMedicineName(),
-                medicationDto.getDescription()
+                medicationDto.getMorning(),
+                medicationDto.getAfternoon(),
+                medicationDto.getNight()
         );
     }
 }

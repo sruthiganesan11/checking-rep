@@ -7,7 +7,8 @@ public class PasswordEncoderImpl {
 
     public static void main(String[] arg) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        System.out.println(passwordEncoder.encode("user"));
         System.out.println(passwordEncoder.encode("admin"));
+        System.out.println(passwordEncoder.encode("john"));
+        System.out.println(passwordEncoder.encode("doctor"));
     }
 }

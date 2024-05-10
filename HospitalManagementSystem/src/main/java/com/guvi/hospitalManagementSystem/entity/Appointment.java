@@ -23,7 +23,7 @@ public class Appointment {
     private Long id;
 
     @Column(nullable = false)
-    private String appointmentId;
+        private String appointmentId;
 
     @Column(nullable = false)
     private String doctorName;

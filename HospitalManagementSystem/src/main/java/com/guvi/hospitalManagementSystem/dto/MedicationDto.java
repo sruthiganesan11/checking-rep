@@ -20,10 +20,14 @@ public class MedicationDto {
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate appointmentDate;
 
     private String medicineName;
 
-    private String description;
+    private int morning;
+
+    private int afternoon;
+
+    private int night;
 }

@@ -45,10 +45,10 @@ public class PatientServiceImpl implements PatientService {
         Patient patient = patientRepo.findById(patientId).get();
 
         patient.setPatientName(updatedPatient.getPatientName());
-        patient.setContactNumber(updatedPatient.getContactNumber());
+        patient.setContactNo(updatedPatient.getContactNo());
         patient.setEmail(updatedPatient.getEmail());
         patient.setAge(updatedPatient.getAge());
-        patient.setMedicalHistory(updatedPatient.getMedicalHistory());
+        patient.setProblem(updatedPatient.getProblem());
 
         Patient savedPatient = patientRepo.save(patient);
         return PatientMapper.mapToPatientDto(savedPatient);
