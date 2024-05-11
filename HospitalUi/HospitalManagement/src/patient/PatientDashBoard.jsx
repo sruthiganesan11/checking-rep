@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./patientdashboard.css";
 import doctor from "../assets/doc3.avif";
-import appointment from "../assets/docApp1.jpg";
+import appointment from "../assets/docApp1.jpeg";
 import prescription from "../assets/viewpres1.jpeg";
 
 const PatientDashBoard = () => {

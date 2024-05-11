@@ -4,8 +4,6 @@ import { registerAPICall } from "../services/AuthService";
 import Swal from "sweetalert2";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import "./signup.css";
-import Navbar from "../navComponent/Navbar";
-import Footer from "../footerComponent/Footer";
 
 const SignUp = () => {
   const [name, setName] = useState("");
